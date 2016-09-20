@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch Beta 3.3.2 (12041) - http://www.bohemiancoding.com/sketch -->
+    <title>CRO</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="16" height="12" rx="1"></rect>
+        <path id="path-3" d="M0,0 L4,0 L4,4 L2,5 L0,4 L0,0 Z"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Europe" sketch:type="MSLayerGroup" transform="translate(-162.000000, -81.000000)">
+            <g id="CROATIA" transform="translate(162.000000, 81.000000)">
+                <mask id="mask-2" sketch:name="Rectangle 77" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Rectangle-77" fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <rect id="Rectangle-74" fill="#2273C9" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="8" width="16" height="4"></rect>
+                <rect id="Rectangle-77" fill="#E34F4F" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="0" width="16" height="4"></rect>
+                <rect id="Rectangle-78" fill="#FFFFFF" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="4" width="16" height="4"></rect>
+                <g id="Group" mask="url(#mask-2)">
+                    <g transform="translate(6.000000, 3.000000)">
+                        <mask id="mask-4" sketch:name="Rectangle 158" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Rectangle-158" stroke="#E34F4F" stroke-width="1" fill="#E34F4F" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-3"></use>
+                        <rect id="Rectangle-159" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="0" y="0" width="1" height="1"></rect>
+                        <rect id="Rectangle-160" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="2" y="0" width="1" height="1"></rect>
+                        <rect id="Rectangle-161" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="1" y="1" width="1" height="1"></rect>
+                        <rect id="Rectangle-162" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="3" y="1" width="1" height="1"></rect>
+                        <rect id="Rectangle-163" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="2" y="2" width="1" height="1"></rect>
+                        <rect id="Rectangle-164" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="0" y="2" width="1" height="1"></rect>
+                        <rect id="Rectangle-165" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="1" y="3" width="1" height="1"></rect>
+                        <rect id="Rectangle-166" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="3" y="3" width="1" height="1"></rect>
+                        <rect id="Rectangle-167" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="0" y="4" width="1" height="1"></rect>
+                        <rect id="Rectangle-168" stroke="none" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" mask="url(#mask-4)" x="2" y="4" width="1" height="1"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="_SLICES_Europe" transform="translate(0.000000, 1.000000)"></g>
+        </g>
+    </g>
+</svg>

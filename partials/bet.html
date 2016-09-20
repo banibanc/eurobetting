@@ -1,0 +1,148 @@
+﻿<div class="container" ng-controller="consultCtrl">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <nav id="groups">
+                <ul class="nav">
+                    <li><a href="" ng-click="loadAllMatches()">Tous les matchs</a></li>
+                    <li ng-repeat="(key, teams) in groups" ng-click="toggleGroup(key)">
+                        <a href="" ng-click="loadMatchesForGroup(key)">Groupe {{key}}</a>
+                        <ul class="nav teams" style="display:none;" id="teams_{{key}}">
+                            <li ng-repeat="team in teams">
+                                <a href="" ng-click="loadMatchesForTeam(team.id)">{{team.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" ng-click="loadTopUsers()">Classement pronostics</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-xs-12 col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Equipes</th>
+                        <th>Résultat</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="match in matches">
+                        <td>{{match.date}}</td>
+                        <td>
+                            {{match.team_home}} <img class="flag" src="img/flags/{{match.team_home_id}}.svg"/> - <img class="flag" src="img/flags/{{match.team_away_id}}.svg"/> {{match.team_away}}
+                            <br/>
+                            <span class="odds">{{match.odds_home}}</span>
+                            <span class="odds">{{match.odds_draw}}</span>
+                            <span class="odds">{{match.odds_away}}</span>
+                        </td>
+                        <td>
+                            {{match.score_home}} - {{match.score_away}}<br/>
+                            <span class="bet">{{match.betHome}} - {{match.betAway}}</span>
+                        </td>
+                        <td>{{match.status}}</td>
+                        <td>
+                            <a href="" ng-click="openBet(match.id)"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <span class="glyphicon glyphicon-ok text-success" ng-if="checkBet(match.id)"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="modalBet" tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Pronostiquer ce match</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="betForm" name="betForm">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-5 text-center">
+                                    <label for="team_home" class="control-label">
+                                        {{bet.team_home}} <img class="flag" src="img/flags/{{bet.team_home_id}}_2x.png"/>
+                                    </label>
+                                </div>
+                                <div class="col-xs-2">
+                                </div>
+                                <div class="col-xs-5 text-center">
+                                    <label for="team_away" class="control-label">
+                                        <img class="flag" src="img/flags/{{bet.team_away_id}}_2x.png"/> {{bet.team_away}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <input type="number" required="required" class="form-control input-sm" id="team_home" name="team_home" ng-model="formData.score_home">
+                                </div>
+                                <div class="col-xs-2 text-center">-</div>
+                                <div class="col-xs-5">
+                                    <input type="number" required="required" class="form-control input-sm" id="team_away" name="team_away" ng-model="formData.score_away">
+                                </div>
+                                <input type="hidden" name="match" id="matchId" ng-model="formData.matchId"/>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                    <div id="chart"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" ng-click="saveBet()" data-ng-disabled="betForm.$invalid">Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalTop" tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="">Classement pronostics</h4>
+                </div>
+                <div class="modal-body">
+                    <h5>Mes points : {{points}}</h5>
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a data-target="#chartTop" aria-controls="chart" role="tab" data-toggle="tab">Chart</a></li>
+                            <li role="presentation"><a data-target="#tableTop" aria-controls="table" role="tab" data-toggle="tab">Table</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="chartTop">
+                                <div id="chartTop" style="height:600px;"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="tableTop">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Position</th>
+                                            <th>Nom</th>
+                                            <th>Points</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="user in users">
+                                            <td>{{user.position+1}}</td>
+                                            <td>{{user.name}}</td>
+                                            <td>{{user.points}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

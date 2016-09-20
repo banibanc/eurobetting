@@ -1,0 +1,7 @@
+.flag {}
+#chart,#chartTop {width:580px;}
+#header {background:#ccc;margin-bottom:20px;}
+#logos {width:250px;margin:20px auto;}
+#logos img:nth-child(1) {margin:0 65px 0 0;}
+.affix {position: fixed;top: 20px;}
+.odds {border:1px solid #ccc;border-radius:2px;width:34px;text-align:center;display:inline-block;}

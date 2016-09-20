@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eurobetApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Foot</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/angularjs-toaster/toaster.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="row" id="header">
+        <div class="center-block" id="logos">
+            <img src="img/logo-easi.png"/><img src="img/logo.svg" height="100" class=""/>
+        </div>
+    </div>
+    <div data-ng-view="" id="ng-view"></div>
+    <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+    <!-- load scripts -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="node_modules/highcharts/highcharts.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angularjs-toaster/toaster.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/data.js"></script>
+    <script src="app/directives/form.js"></script>
+    <script src="app/controller/consultController.js"></script>
+    <script src="app/controller/authController.js"></script>
+</body>
+</html>
